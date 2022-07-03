@@ -1,6 +1,6 @@
 {
   "name": "animation-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue 列表动画渲染",
   "main": "index.js",
   "scripts": {
