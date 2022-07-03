@@ -167,4 +167,10 @@ mounted() {
 
 ## 附
 
-+ 暂无
++ 重新渲染动画
+
+  ```js
+  this.$animationListShow()
+  ```
+
+  
