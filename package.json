@@ -1,7 +1,7 @@
 {
   "name": "animation-list",
   "version": "1.0.2",
-  "description": "vue 列表动画渲染",
+  "description": "vue 元素列表动画渲染",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
