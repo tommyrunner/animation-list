@@ -77,6 +77,16 @@ export default {
 + v-list-show-deep
   + 深层获取子元素，动画渲染
 
+### first-no 是否默认调用动画
+
+```html
+<div class="list" v-list-show first-no>
+    <!-- ...item -->
+</div>
+```
+
+> 默认 调用动画
+
 ### 默认动画
 
 | 动画       | 效果       | 备注               |
@@ -88,6 +98,27 @@ export default {
 | small-big  | 从小到大   |                    |
 | big-small  | 从大到小   |                    |
 | custom     | 自定义动画 | 根据例子自定义动画 |
+
+```html
+<div class="list" v-list-show="'right-left'">
+    <!-- ...item -->
+</div>
+```
+
+## 异步渲染
+
+```js
+// 模拟异步获取数据
+setTimeout(() => {
+    // 等待 vue 异步渲染vnode后
+    this.$nextTick(() => {
+        // 重新渲染动画
+        this.$animationListShow();
+    });
+}, 1000);
+```
+
+> 如果怕重复动画可以设置 **first-no**
 
 ## 自定义动画
 

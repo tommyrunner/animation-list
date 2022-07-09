@@ -22,6 +22,7 @@ let animationList = {
       elChildern = [], // 当前元素的子元素
       $deep = false, // 是否深层动画
       _hooks = {},
+      $firstNo = true, // 是否刚进入调用动画
       // 默认动画 custom：自定义
       AnimationTypes = ["bottom-top", "top-bottom", "right-left", "left-right", "small-big", "big-small", "custom"],
       animationType = "right-left", // 默认动画
@@ -57,10 +58,12 @@ let animationList = {
         initHooks(this);
       },
       mounted() {
-        this.$nextTick(() => {
-          // 启动动画
-          this.$animationListShow();
-        });
+        // 判断是否刚进入调用动画(默认调用)
+        !$firstNo &&
+          this.$nextTick(() => {
+            // 启动动画
+            this.$animationListShow();
+          });
       },
     });
     // 浅层
@@ -68,8 +71,14 @@ let animationList = {
       bind(el, binding, vnode) {
         getElConfig(el, binding, false);
       },
+      update(el, binding) {
+        getElConfig(el, binding, false);
+      },
       // 兼容vue3.0
       beforeMount(el, binding, vnode) {
+        getElConfig(el, binding, false);
+      },
+      beforeUpdate(el, binding) {
         getElConfig(el, binding, false);
       },
     });
@@ -78,8 +87,14 @@ let animationList = {
       bind(el, binding, vnode) {
         getElConfig(el, binding, true);
       },
+      update(el, binding) {
+        getElConfig(el, binding, true);
+      },
       // 兼容vue3.0
       beforeMount(el, binding, vnode) {
+        getElConfig(el, binding, true);
+      },
+      beforeUpdate(el, binding) {
         getElConfig(el, binding, true);
       },
     });
@@ -91,6 +106,7 @@ let animationList = {
     function getElConfig(el, binding, deep) {
       $el = el;
       $deep = deep;
+      $firstNo = el.getAttribute("first-no") !== null || el.getAttribute("firstNo") !== null;
       binding.value && AnimationTypes.includes(binding.value) && (animationType = binding.value);
     }
     /**
