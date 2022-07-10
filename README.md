@@ -159,7 +159,7 @@ setTimeout(() => {
         opacity: 0 !important;
     }
     .ls-custom {
-        animation: ls-custom ease 0.38s !important;
+        animation: ls-custom ease 0.26s !important;
     }
     @keyframes ls-custom {
         0% {

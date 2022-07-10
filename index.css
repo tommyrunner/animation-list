@@ -5,7 +5,7 @@
 /* 下-上 */
 .ls-bottom-top {
   opacity: 1 !important;
-  animation: ls-bottom-top ease 0.38s !important;
+  animation: ls-bottom-top ease 0.26s !important;
 }
 @keyframes ls-bottom-top {
   0% {
@@ -20,7 +20,7 @@
 /* 上-下 */
 .ls-top-bottom {
   opacity: 1 !important;
-  animation: ls-top-bottom ease 0.38s !important;
+  animation: ls-top-bottom ease 0.26s !important;
 }
 @keyframes ls-top-bottom {
   0% {
@@ -35,7 +35,7 @@
 /* 右-左 */
 .ls-right-left {
   opacity: 1 !important;
-  animation: ls-right-left ease 0.38s !important;
+  animation: ls-right-left ease 0.26s !important;
 }
 @keyframes ls-right-left {
   0% {
@@ -50,7 +50,7 @@
 /* 左-右 */
 .ls-left-right {
   opacity: 1 !important;
-  animation: ls-left-right ease 0.38s !important;
+  animation: ls-left-right ease 0.26s !important;
 }
 @keyframes ls-left-right {
   0% {
@@ -65,7 +65,7 @@
 /* 小-大 */
 .ls-small-big {
   opacity: 1 !important;
-  animation: ls-small-big ease 0.38s !important;
+  animation: ls-small-big ease 0.26s !important;
 }
 @keyframes ls-small-big {
   0% {
@@ -80,7 +80,7 @@
 /* 大-小 */
 .ls-big-small {
   opacity: 1 !important;
-  animation: ls-big-small ease 0.38s !important;
+  animation: ls-big-small ease 0.26s !important;
 }
 @keyframes ls-big-small {
   0% {
