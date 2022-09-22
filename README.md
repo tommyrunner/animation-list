@@ -2,7 +2,7 @@
 
 ## 简介
 
-![https://img-blog.csdnimg.cn/493952dbb84e4ed8bafdbb107498b4b7.gif#pic_center](https://img-blog.csdnimg.cn/493952dbb84e4ed8bafdbb107498b4b7.gif#pic_center)
+![https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center](https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center)
 
 > + animation-list 基于vue，支持vue3.0
 > + animation-list 以vue指令方式获取dom中每个子元素（可以获取更深层children），并以动画渲染子元素。
