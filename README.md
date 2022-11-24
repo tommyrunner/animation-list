@@ -77,7 +77,7 @@ export default {
 + v-list-show-deep
   + 深层获取子元素，动画渲染
 
-### first-no 是否默认调用动画
+### first-no 默认不调用动画
 
 ```html
 <div class="list" v-list-show first-no>
@@ -199,6 +199,7 @@ mounted() {
 > 主要函数抛在 **$animationListHooks** 中 
 
 ## 附
++ 支持 vue3  ts 
 
 + 重新渲染动画
 
