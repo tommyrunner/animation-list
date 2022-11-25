@@ -4,8 +4,7 @@
 
 ![https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center](https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center)
 
-> + animation-list 基于vue，支持vue3.0
-> + animation-list 以vue指令方式获取dom中每个子元素（可以获取更深层children），并以动画渲染子元素。
+> + animation-list 基于vue列表动画插件，支持vue3.0
 
 ## 引用
 
@@ -15,35 +14,27 @@
 npm i animation-list
 ```
 
-+ 引用
-
-```js
-// 引用animationList
-import animationList from "animation-list";
-// 引用animationList默认动画
-import "animation-list/index.css";
-Vue.use(animationList);
-```
-
-## 使用
-
 + 例子
 
 ```vue
 <template>
-  <div class="list" v-list-show="'right-left'">
+  <AnimationList ref="animationListRef">
     <div class="item" v-for="item in 8" :key="item">{{ item }}</div>
-  </div>
+  </AnimationList>
 </template>
 
-<script>
-export default {
-  components: {},
-  data() {
-    return {
-    };
-  }
-};
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
+import AnimationList from 'animation-list/AnimationList.vue'
+const animationListRef = ref<InstanceType<typeof AnimationList>>()
+onMounted(() => {
+  animationListRef.value?.initHooks({
+    end: () => {
+        console.log('动画结束')
+        animationListRef.value?.animationCall() // 重新触发动画
+    }
+  })
+})
 </script>
 
 <style  scoped>
@@ -66,76 +57,56 @@ export default {
 
 ```
 
-> + 只需要在 标签中假如指定  **v-list-show** 即可
-
 ## 参数
 
-### 指令
+### 属性
 
-+ v-list-show
-  + 浅层获取子元素，动画渲染
-+ v-list-show-deep
-  + 深层获取子元素，动画渲染
+| 参数          | 默认值                    | 备注             |
+| ------------- | ------------------------- | ---------------- |
+| firstShow     | true                      | 默认是否渲染动画 |
+| deep          | false                     | 是否深层查找     |
+| animationType | ANIMATION_TYPE.RIGHT_LEFT | 默认从右到左动画 |
 
-### first-no 默认不调用动画
 
-```html
-<div class="list" v-list-show first-no>
-    <!-- ...item -->
-</div>
-```
 
-> 默认 调用动画
+### ANIMATION_TYPE默认动画
 
-### 默认动画
+| key        | 动画       | 效果       | 备注               |
+| ---------- | ---------- | ---------- | ------------------ |
+| BOTTOM_TOP | bottom-top | 从下向上   |                    |
+| TOP_BOTTOM | top-bottom | 从上向下   |                    |
+| RIGHT_LEFT | right-left | 从右到左   | 默认               |
+| LEFT_RIGHT | left-right | 从左到右   |                    |
+| SAMLL_BIG  | small-big  | 从小到大   |                    |
+| BIG_SMALL  | big-small  | 从大到小   |                    |
+| CUSTOM     | custom     | 自定义动画 | 根据例子自定义动画 |
 
-| 动画       | 效果       | 备注               |
-| ---------- | ---------- | ------------------ |
-| bottom-top | 从下向上   |                    |
-| top-bottom | 从上向下   |                    |
-| right-left | 从右到左   | 默认               |
-| left-right | 从左到右   |                    |
-| small-big  | 从小到大   |                    |
-| big-small  | 从大到小   |                    |
-| custom     | 自定义动画 | 根据例子自定义动画 |
-
-```html
-<div class="list" v-list-show="'right-left'">
-    <!-- ...item -->
-</div>
-```
-
-## 异步渲染
+## 异步渲染流程
 
 ```js
-// 模拟异步获取数据
+// 1.设置属性取消默认渲染动画 firstShow
+// 2.获取数据后重新触发
+import { onMounted, ref,nextTick } from 'vue'
 setTimeout(() => {
-    // 等待 vue 异步渲染vnode后
-    this.$nextTick(() => {
-        // 重新渲染动画
-        this.$animationListShow();
-    });
-}, 1000);
+    // 获取数据
+    nextTick(() => {
+        animationListRef.value?.reAnimationList()
+    })
+}, 1500)
 ```
-
-> 如果怕重复动画可以设置 **first-no**
 
 ## 自定义动画
 
 ```vue
 <template>
-<div class="list" v-list-show="'custom'">
+<AnimationList ref="animationListRef" :animationType="ANIMATION_TYPE.CUSTOM">
     <div class="item" v-for="item in 8" :key="item">{{ item }}</div>
-    </div>
+    </AnimationList>
 </template>
+<script lang="ts" setup>
+    import AnimationList from 'animation-list/AnimationList.vue'
+    import { ANIMATION_TYPE } from 'animation-list/index.d'
 
-<script>
-    export default {
-        components: {},
-        data() {
-            return {};
-        },
-    };
 </script>
 
 <style  scoped>
@@ -154,9 +125,10 @@ setTimeout(() => {
         color: gray;
         border-radius: 4px;
     }
-	/** 自定义动画部分(必须) **/
+    /** 自定义动画部分(必须) **/
     .ls-custom {
-        opacity: 0 !important;
+        display: block;
+        opacity: 1 !important;
     }
     .ls-custom {
         animation: ls-custom ease 0.26s !important;
@@ -164,17 +136,17 @@ setTimeout(() => {
     @keyframes ls-custom {
         0% {
             opacity: 0;
-            transform: translateY(100%) scale(0.6);
+            transform: scale(1.6);
         }
         100% {
             opacity: 1;
-            transform: translateY(0%) scale(1);
+            transform: scale(1);
         }
     }
+
 </style>
 ```
 
-> + 告诉 v-list-show 自定义 **custom**
 > + 在 style 样式加入
 >   + ls-custom 初始化
 >   + ls-custom 动画开始
@@ -183,28 +155,16 @@ setTimeout(() => {
 ## hooks生命周期
 
 ```js
-mounted() {
-    this.$animationListHooks.start = () => {
-        console.log("动画开始");
-    };
-    this.$animationListHooks.update = (params) => {
-        console.log("动画跳动", params);
-    };
-    this.$animationListHooks.end = () => {
-        console.log("动画结束");
-    };
-}
+animationListRef.value?.initHooks({
+    start:()=>{},
+    update:()=>{},
+    end:()=>{}
+})
 ```
 
-> 主要函数抛在 **$animationListHooks** 中 
-
 ## 附
-+ 支持 vue3  ts 
++ 1.x.x  - vue2 相关文档，请以该版本的 README 为准
 
-+ 重新渲染动画
-
-  ```js
-  this.$animationListShow()
-  ```
++ 2.1.x - vue3
 
   

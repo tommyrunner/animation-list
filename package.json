@@ -1,8 +1,9 @@
 {
   "name": "animation-list",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "vue 元素列表动画渲染",
   "main": "index.js",
+  "typings": "./index.d",
   "scripts": {
     "push": "npm publish"
   },

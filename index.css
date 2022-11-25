@@ -4,6 +4,7 @@
 }
 /* 下-上 */
 .ls-bottom-top {
+  display: block;
   opacity: 1 !important;
   animation: ls-bottom-top ease 0.26s !important;
 }
@@ -19,6 +20,7 @@
 }
 /* 上-下 */
 .ls-top-bottom {
+  display: block;
   opacity: 1 !important;
   animation: ls-top-bottom ease 0.26s !important;
 }
@@ -34,6 +36,7 @@
 }
 /* 右-左 */
 .ls-right-left {
+  display: block;
   opacity: 1 !important;
   animation: ls-right-left ease 0.26s !important;
 }
@@ -49,6 +52,7 @@
 }
 /* 左-右 */
 .ls-left-right {
+  display: block;
   opacity: 1 !important;
   animation: ls-left-right ease 0.26s !important;
 }
@@ -64,6 +68,7 @@
 }
 /* 小-大 */
 .ls-small-big {
+  display: block;
   opacity: 1 !important;
   animation: ls-small-big ease 0.26s !important;
 }
@@ -79,6 +84,7 @@
 }
 /* 大-小 */
 .ls-big-small {
+  display: block;
   opacity: 1 !important;
   animation: ls-big-small ease 0.26s !important;
 }
@@ -93,6 +99,3 @@
   }
 }
 /* 自定义动画 */
-.ls-custom {
-  opacity: 1 !important;
-}
