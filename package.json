@@ -1,6 +1,6 @@
 {
   "name": "animation-list",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "vue 元素列表动画渲染",
   "main": "index.js",
   "typings": "./index.d",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/tommyrunner/animation-list"
+    "url": "https://github.com/tommyrunner/animation-list.git"
   },
   "author": "",
   "license": "ISC"
