@@ -78,7 +78,7 @@ import { onMounted, ref,nextTick } from 'vue'
 setTimeout(() => {
     // 获取数据
     nextTick(() => {
-        animationListRef.value?.reAnimationList()
+        animationListRef.value?.animationCall()
     })
 }, 1500)
 ```
@@ -93,7 +93,7 @@ setTimeout(() => {
 </template>
 <script lang="ts" setup>
     import AnimationList from 'animation-list/AnimationList.vue'
-    import { ANIMATION_TYPE } from 'animation-list/index.d'
+    import { ANIMATION_TYPE } from "animation-list/uitls";
 
 </script>
 
