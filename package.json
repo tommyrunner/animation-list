@@ -1,6 +1,6 @@
 {
   "name": "animation-list",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "vue 元素列表动画渲染",
   "main": "index.js",
   "typings": "./index.d",

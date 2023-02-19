@@ -5,7 +5,7 @@
 </template>
 <script lang="ts" setup>
 import type { StateDataType, HookType } from "./index.d";
-import { ANIMATION_TYPE } from "./index.d";
+import { ANIMATION_TYPE } from "./uitls";
 import { getOnTransitionEvent } from "./uitls";
 import { onBeforeMount, onMounted, reactive, ref, nextTick } from "vue";
 import "./index.css";
