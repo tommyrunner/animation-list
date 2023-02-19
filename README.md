@@ -38,20 +38,8 @@ onMounted(() => {
 </script>
 
 <style  scoped>
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  line-height: 50px;
-}
-.list .item {
-  width: 100px;
-  height: 50px;
-  border: 1px solid gainsboro;
-  margin: 5px;
-  box-shadow: 4px 5px 9px gainsboro;
-  color: gray;
-  border-radius: 4px;
+.animation-list {
+  overflow: hidden;
 }
 </style>
 
@@ -110,20 +98,8 @@ setTimeout(() => {
 </script>
 
 <style  scoped>
-    .list {
-        display: flex;
-        flex-wrap: wrap;
-        text-align: center;
-        line-height: 50px;
-    }
-    .list .item {
-        width: 100px;
-        height: 50px;
-        border: 1px solid gainsboro;
-        margin: 5px;
-        box-shadow: 4px 5px 9px gainsboro;
-        color: gray;
-        border-radius: 4px;
+    .animation-list {
+        overflow: hidden;
     }
     /** 自定义动画部分(必须) **/
     .ls-custom {
