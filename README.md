@@ -5,6 +5,7 @@
 ![https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center](https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center)
 
 > + animation-list 基于vue列表动画插件，支持vue3.0
+> + 支持每个元素的动画监听(start,update,end)
 
 ## 引用
 
@@ -133,7 +134,7 @@ setTimeout(() => {
 ```js
 animationListRef.value?.initHooks({
     start:()=>{},
-    update:()=>{},
+    update:(index: number, el: HTMLElement) => {},
     end:()=>{}
 })
 ```
