@@ -134,7 +134,7 @@ setTimeout(() => {
 ```js
 animationListRef.value?.initHooks({
     start:()=>{},
-    update:(index: number, el: HTMLElement) => {},
+    update:(params: { index: number; el: HTMLElement | Element }) => {},
     end:()=>{}
 })
 ```
