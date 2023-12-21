@@ -7,33 +7,58 @@
 import type { StateDataType, HookType } from "./index.d";
 import { ANIMATION_TYPE } from "./uitls";
 import { getOnTransitionEvent } from "./uitls";
-import { onBeforeMount, onMounted, reactive, ref, nextTick } from "vue";
+import { onBeforeMount, onMounted, onDeactivated, reactive, ref, nextTick } from "vue";
 import "./index.css";
 interface PropsType {
   firstShow?: boolean; // 默认是否渲染动画
   deep?: boolean; // 是否深层动画
   animationType?: ANIMATION_TYPE; // 默认动画
+  isAsync?: boolean; // 是否异步
 }
 let animationEventName = getOnTransitionEvent(); // 获取动画回函数调名
-const animationListRef = ref(); // 当前元素
+const animationListRef = ref<HTMLElement>(); // 当前元素
 const stateData: StateDataType = reactive({
   _$Hooks: {}, // 生命周期
   elChildern: [], // 子元素集
+  isAsync: true, // 是否异步
 });
 const props = withDefaults(defineProps<PropsType>(), {
   firstShow: true,
   deep: false,
   animationType: ANIMATION_TYPE.RIGHT_LEFT,
 });
+let observer: MutationObserver | null = null;
 onBeforeMount(() => {
   // 初始化Hooks
   initHooks();
 });
 onMounted(() => {
-  // 判断是否刚进入调用动画(默认调用)
   nextTick(() => {
+    // 判断是否刚进入调用动画(默认调用)
     props.firstShow && animationCall();
+    // 监听子元素变化
+    observer = new MutationObserver(function () {
+      animationCall();
+      // 只触发一次
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+    });
+    // 配置观察选项
+    const config = { childList: true };
+    // 开始观察目标节点
+    if (props.isAsync && animationListRef.value) {
+      observer.observe(animationListRef.value, config);
+    }
   });
+});
+// 清除状态
+onDeactivated(() => {
+  if (observer) {
+    observer.disconnect();
+    observer = null;
+  }
 });
 // 抛出动画触发函数
 function animationCall() {
@@ -54,12 +79,12 @@ function animationCall() {
  * @param els 子元素集
  * @param deep 是否深入
  */
-function takeElChildern(els: Array<HTMLElement | Element>, deep: boolean) {
+function takeElChildern(els: HTMLCollection, deep: boolean) {
   if (els.length > 0) {
     if (deep) {
       for (let el of els) {
         if (el.children && el.children.length > 0) {
-          takeElChildern(Array.from(el.children), deep);
+          takeElChildern(el.children, deep);
         } else {
           el.classList.add("ls-init");
           stateData.elChildern.push(el);
