@@ -20,12 +20,12 @@ const animationListRef = ref<HTMLElement>(); // 当前元素
 const stateData: StateDataType = reactive({
   _$Hooks: {}, // 生命周期
   elChildern: [], // 子元素集
-  isAsync: true, // 是否异步
 });
 const props = withDefaults(defineProps<PropsType>(), {
   firstShow: true,
   deep: false,
   animationType: ANIMATION_TYPE.RIGHT_LEFT,
+  isAsync: true, // 是否异步
 });
 let observer: MutationObserver | null = null;
 onBeforeMount(() => {

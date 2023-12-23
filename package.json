@@ -1,7 +1,7 @@
 {
   "name": "animation-list",
-  "version": "2.1.7",
-  "description": "vue 元素列表动画渲染",
+  "version": "2.2.1",
+  "description": "Animation rendering based on Vue3 list elements (supports animation callbacks)",
   "main": "index.js",
   "typings": "./index.d",
   "scripts": {
@@ -11,6 +11,11 @@
     "type": "git",
     "url": "https://github.com/tommyrunner/animation-list.git"
   },
+  "keywords": [
+    "Vue3",
+    "Animation",
+    "call"
+  ],
   "author": "",
   "license": "ISC"
 }

@@ -106,8 +106,6 @@ setTimeout(() => {
     .ls-custom {
         display: block;
         opacity: 1 !important;
-    }
-    .ls-custom {
         animation: ls-custom ease 0.26s !important;
     }
     @keyframes ls-custom {
@@ -142,6 +140,6 @@ animationListRef.value?.initHooks({
 ## 附
 + 1.x.x  - vue2 相关文档，请以该版本的 README 为准
 
-+ 2.1.x - vue3
++ 2.x.x - vue3
 
   
