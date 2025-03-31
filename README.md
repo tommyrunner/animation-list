@@ -2,7 +2,7 @@
 
 ## 简介
 
-![https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center](https://img-blog.csdnimg.cn/e7208f78e2a8455090da6bfebd23e41a.gif#pic_center)
+![animation-list](https://i.postimg.cc/3J09Q23r/effect-v1.gif)
 
 > + animation-list 基于vue列表动画插件，支持vue3.0
 > + 支持每个元素的动画监听(start,update,end)

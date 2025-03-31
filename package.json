@@ -1,6 +1,6 @@
 {
   "name": "animation-list",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Animation rendering based on Vue3 list elements (supports animation callbacks)",
   "main": "index.js",
   "typings": "./index.d",
