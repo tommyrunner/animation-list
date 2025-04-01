@@ -11,15 +11,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick } from "vue";
-import animationList from "../../src/components/animation-list.vue";
+import { ref } from "vue";
+import animationList from "animation-list";
 
 /**
  * 组件属性定义
  */
 interface Props {
   /** 动画类型 */
-  animationType: any; 
+  animationType: any;
   /** 是否首次展示动画 */
   firstShow: boolean;
   /** 是否异步加载 */
@@ -46,7 +46,7 @@ defineExpose({
       animationListRef.value.initHooks(hooks);
     }
   },
-  
+
   /**
    * 触发动画
    */
@@ -54,7 +54,7 @@ defineExpose({
     if (animationListRef.value) {
       animationListRef.value.animationCall();
     }
-  }
+  },
 });
 </script>
 
@@ -86,4 +86,4 @@ defineExpose({
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
-</style> 
+</style>

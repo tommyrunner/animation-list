@@ -2,7 +2,7 @@
 
 ## 简介
 
-![animation-list](https://i.postimg.cc/3J09Q23r/effect-v1.gif)
+![animation-list](https://i.postimg.cc/T3qhwHYC/effect-v3.gif)
 
 > - animation-list 是一个基于 Vue 的高性能列表动画组件，支持 Vue3
 > - 核心特性是支持每个元素的动画生命周期监听(start, update, end)，可自定义动画流程
@@ -194,3 +194,4 @@ animationListRef.value?.initHooks({
 
 - 1.x.x - vue2 相关文档，请以该版本的 README 为准
 - 2.x.x - vue3
+- 3.x.x - vue3 重构了文件结构，新增了测试用例

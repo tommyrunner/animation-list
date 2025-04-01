@@ -32,7 +32,7 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import animationList from "../../src/components/animation-list.vue";
+import animationList from "animation-list";
 
 /**
  * 组件属性定义

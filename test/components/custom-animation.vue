@@ -2,14 +2,7 @@
 <template>
   <div class="test-panel">
     <h2>自定义果冻动画</h2>
-    <animation-list
-      ref="animationListRef"
-      :first-show="firstShow"
-      :deep="false"
-      animation-type="custom"
-      :is-async="isAsync"
-      class="animation-container"
-    >
+    <animation-list ref="animationListRef" :first-show="firstShow" :deep="false" animation-type="custom" :is-async="isAsync" class="animation-container">
       <div v-for="item in items" :key="item.id" class="custom-item" :style="{ backgroundColor: item.color }">
         {{ item.id.split("-")[1] }}
       </div>
@@ -18,8 +11,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick } from "vue";
-import animationList from "../../src/components/animation-list.vue";
+import { ref } from "vue";
+import animationList from "animation-list";
 
 /**
  * 组件属性定义
@@ -51,7 +44,7 @@ defineExpose({
       animationListRef.value.initHooks(hooks);
     }
   },
-  
+
   /**
    * 触发动画
    */
@@ -59,7 +52,7 @@ defineExpose({
     if (animationListRef.value) {
       animationListRef.value.animationCall();
     }
-  }
+  },
 });
 </script>
 
@@ -123,4 +116,4 @@ defineExpose({
     transform: scale(1);
   }
 }
-</style> 
+</style>
