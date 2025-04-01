@@ -1,0 +1,131 @@
+/* 组件容器 */
+.__animation-list {
+  overflow: hidden;
+}
+
+/* 初始化样式 */
+.__ls-init {
+  opacity: 0 !important;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* 动画基础样式 */
+.__ls-bottom-top,
+.__ls-top-bottom,
+.__ls-right-left,
+.__ls-left-right,
+.__ls-small-big,
+.__ls-big-small,
+.__ls-custom {
+  display: block;
+  opacity: 1 !important;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  /* 确保动画结束后稳定 */
+  transition: opacity 0.05s ease-out;
+}
+
+/* 下-上 */
+.__ls-bottom-top {
+  animation: __ls-bottom-top ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-bottom-top {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+/* 上-下 */
+.__ls-top-bottom {
+  animation: __ls-top-bottom ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-top-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+/* 右-左 */
+.__ls-right-left {
+  animation: __ls-right-left ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-right-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/* 左-右 */
+.__ls-left-right {
+  animation: __ls-left-right ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-left-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+/* 小-大 */
+.__ls-small-big {
+  animation: __ls-small-big ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-small-big {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 大-小 */
+.__ls-big-small {
+  animation: __ls-big-small ease 0.26s !important;
+  animation-fill-mode: forwards;
+}
+@keyframes __ls-big-small {
+  0% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 自定义动画 */
+.__ls-custom {
+  animation: __ls-custom ease 0.5s !important;
+  animation-fill-mode: forwards;
+}

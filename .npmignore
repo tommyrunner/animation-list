@@ -1,0 +1,27 @@
+# 源代码控制
+.git
+.gitignore
+
+# 依赖目录
+node_modules/
+
+# 编辑器配置
+.vscode/
+.idea/
+.DS_Store
+
+# 日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 配置文件
+tsconfig.json
+
+# 测试文件
+/test
+
+# 临时文件
+.tmp/
+.temp/ 
