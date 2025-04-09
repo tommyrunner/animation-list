@@ -1,6 +1,6 @@
 {
   "name": "animation-list",
-  "version": "3.0.1",
+  "version": "3.0.3",
   "description": "Animation rendering based on Vue3 list elements (supports animation callbacks)",
   "main": "src/index.ts",
   "types": "src/index.ts",
