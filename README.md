@@ -1,15 +1,49 @@
 # animation-list
 
-## 简介
+<p align="center">
+  <img src="https://i.postimg.cc/T3qhwHYC/effect-v3.gif" width="200" alt="animation-list logo">
+</p>
 
-![animation-list](https://i.postimg.cc/T3qhwHYC/effect-v3.gif)
+<p align="center">
+  基于 Vue3 的高性能列表动画组件，为您的列表添加丝滑动画效果
+</p>
+
+<p align="center">
+  <a href="https://github.com/tommyrunner/animation-list/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/tommyrunner/animation-list.svg" alt="license">
+  </a>
+  <a href="https://www.npmjs.com/package/animation-list">
+    <img src="https://img.shields.io/npm/v/animation-list.svg" alt="npm">
+  </a>
+  <a href="https://github.com/tommyrunner/animation-list/stargazers">
+    <img src="https://img.shields.io/github/stars/tommyrunner/animation-list.svg" alt="stars">
+  </a>
+</p>
+
+## 🔥 特性
+
+- 💪 基于 Vue 3 Composition API 开发
+- 🔥 使用 TypeScript 编写，提供完整的类型定义
+- 📦 开箱即用的高质量动画效果
+- 🌈 支持多种内置动画类型和自定义动画
+- 👓 提供完整的动画生命周期钩子函数
+- ⚡ 高性能设计，针对列表渲染进行优化
+
+## 📋 更新日志
+
+- 优化源码文件结构
+- 新增多种动画类型
+- 添加动画生命周期监听
+- 完全支持 Vue3 + TypeScript
+
+## 🎬 效果展示
+
+![演示效果](https://i.postimg.cc/T3qhwHYC/effect-v3.gif)
 
 > - animation-list 是一个基于 Vue 的高性能列表动画组件，支持 Vue3
 > - 核心特性是支持每个元素的动画生命周期监听(start, update, end)，可自定义动画流程
 
-## 引用
-
-- 安装
+## 安装
 
 ```shell
 npm i animation-list
